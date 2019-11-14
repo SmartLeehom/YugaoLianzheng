@@ -8,6 +8,6 @@ import java.util.List;
 
 public interface LianzhengDongtaiDao extends BaseMapper<LianzhengDongtaiEntity>  {
     void updateLianzhengDongtai(@Param("lianzhengDongtaiEntity") LianzhengDongtaiEntity entity);
-    List<LianzhengDongtaiEntity> queryList(@Param("createdBy") String createdBy, @Param("beginTime") String beginTime, @Param("endTime") String endTime, @Param("pattern") String pattern);
+    List<LianzhengDongtaiEntity> queryList(@Param("createdBy") String createdBy, @Param("beginTime") String beginTime, @Param("endTime") String endTime, @Param("pattern") String pattern, @Param("status") String status);
     void deleteLianzhengDongtai(@Param("id")String id);
 }

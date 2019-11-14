@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface LianzhengDongtaiService extends IService<LianzhengDongtaiEntity> {
     void updateLianzhengDongtai(LianzhengDongtaiEntity entity);
-    List<LianzhengDongtaiEntity> queryList(String createdBy, String beginTime, String endTime, String pattern);
+    List<LianzhengDongtaiEntity> queryList(String createdBy, String beginTime, String endTime, String pattern, String status);
     void deleteLianzhengDongtai(String id);
 }

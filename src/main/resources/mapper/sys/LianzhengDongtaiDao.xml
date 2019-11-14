@@ -35,7 +35,7 @@
     </update>
 
     <!-- 查询廉政动态 -->
-    <select id="queryList" resultType="com.beyondsoft.yugao.modules.sys.entity.NoteEntity">
+    <select id="queryList" resultType="com.beyondsoft.yugao.modules.sys.entity.LianzhengDongtaiEntity">
         select
         <include refid="Base_Column_List"></include>
         from liangzheng_dongtai
@@ -44,11 +44,13 @@
             <if test="beginTime != null">and created_at  <![CDATA[ >= ]]> #{beginTime}</if>
             <if test="endTime != null">and created_at <![CDATA[ <= ]]> #{endTime}</if>
             <if test="pattern != null">and (title LIKE CONCAT('%',#{pattern},'%') or content LIKE CONCAT('%',#{pattern},'%'))</if>
+            <if test="status != null">and status=#{status}</if>
         </where>
+        order by created_at desc
     </select>
 
     <!-- 删除廉政动态 -->
-    <delete id="deleteLianzhengDongtai" >
-        delete from liangzheng_dongtai where liangzheng_dongtai_id=#{id}
-    </delete>
+    <update id="deleteLianzhengDongtai" >
+        update liangzheng_dongtai set status=-1 where liangzheng_dongtai_id=#{id}
+    </update>
 </mapper>

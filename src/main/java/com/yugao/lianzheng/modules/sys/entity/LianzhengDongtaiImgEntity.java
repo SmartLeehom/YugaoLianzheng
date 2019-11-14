@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 /**
  * <p>
- * 廉政动态表
+ * 廉政动态图片信息
  * </p>
  *
  * @author lihong
@@ -18,28 +18,38 @@ import java.io.Serializable;
  */
 
 @Data
-@TableName("liangzheng_dongtai")
-public class LianzhengDongtaiEntity implements Serializable {
+@TableName("liangzheng_dongtai_img")
+public class LianzhengDongtaiImgEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     /**
      * 主键id
      */
     @TableId
+    private String liangzhengDongtaiImgId;
+    /**
+     * 关联外键，廉政动态的唯一标识
+     */
     private String liangzhengDongtaiId;
-    /**
-     * 廉政动态的标题
-     */
-    private String title;
 
     /**
-     * 廉政动态的内容
+     * 图片保存路径
      */
-    private String content;
+    private String path;
 
     /**
-     * 廉政动态的类型
+     * 图片名称
      */
-    private int type;
+    private String name;
+
+    /**
+     * 图片大小（kb）
+     */
+    private long size;
+
+    /**
+     * 文件后缀
+     */
+    private String suffix;
 
     /**
      * 创建者id
