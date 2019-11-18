@@ -8,4 +8,5 @@ public interface LianzhengDongtaiService extends IService<LianzhengDongtaiEntity
     void updateLianzhengDongtai(LianzhengDongtaiEntity entity);
     List<LianzhengDongtaiEntity> queryList(String createdBy, String beginTime, String endTime, String pattern, String status);
     void deleteLianzhengDongtai(String id);
+    LianzhengDongtaiEntity getLianzhengDongtaiDetail(String id);
 }

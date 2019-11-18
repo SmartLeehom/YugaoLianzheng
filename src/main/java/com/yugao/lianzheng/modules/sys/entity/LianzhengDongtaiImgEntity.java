@@ -18,18 +18,18 @@ import java.io.Serializable;
  */
 
 @Data
-@TableName("liangzheng_dongtai_img")
+@TableName("lianzheng_dongtai_img")
 public class LianzhengDongtaiImgEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     /**
      * 主键id
      */
     @TableId
-    private String liangzhengDongtaiImgId;
+    private String lianzhengDongtaiImgId;
     /**
      * 关联外键，廉政动态的唯一标识
      */
-    private String liangzhengDongtaiId;
+    private String lianzhengDongtaiId;
 
     /**
      * 图片保存路径

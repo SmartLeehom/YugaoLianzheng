@@ -4,7 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yugao.lianzheng.modules.sys.entity.LianzhengContactEntity">
-        <id column="lianzheng_contact_id" property="liangzhengContactId" />
+        <id column="lianzheng_contact_id" property="lianzhengContactId" />
         <result column="tel_no" property="telNo" />
         <result column="address" property="address" />
         <result column="email" property="email" />
@@ -18,7 +18,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        lianzheng_contact_id AS "liangzhengContactId", tel_no AS "telNo", address AS "address", email AS "email",
+        lianzheng_contact_id AS "lianzhengContactId", tel_no AS "telNo", address AS "address", email AS "email",
         created_by AS "createdBy", created_at AS "createdAt", updated_by AS "updatedBy", updated_at AS "updatedAt", status AS "status", remarks AS "remarks"
     </sql>
 
@@ -40,6 +40,6 @@
             <if test="LianzhengContactEntity.email != null">email=#{LianzhengContactEntity.email},</if>
             <if test="LianzhengContactEntity.status != null">status=#{LianzhengContactEntity.status},</if>
         </set>
-        where lianzheng_contact_id=#{lianzhengDongtaiEntity.liangzhengContactId}
+        where lianzheng_contact_id=#{lianzhengDongtaiEntity.lianzhengContactId}
     </update>
 </mapper>

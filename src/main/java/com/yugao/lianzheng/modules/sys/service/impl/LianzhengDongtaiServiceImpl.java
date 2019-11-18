@@ -25,4 +25,9 @@ public class LianzhengDongtaiServiceImpl extends ServiceImpl<LianzhengDongtaiDao
     public void deleteLianzhengDongtai(String id){
         lzDongtaiDao.deleteLianzhengDongtai(id);
     }
+
+    @Override
+    public LianzhengDongtaiEntity getLianzhengDongtaiDetail(String id){
+        return lzDongtaiDao.getLianzhengDongtaiDetail(id);
+    }
 }

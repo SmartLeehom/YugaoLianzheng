@@ -1,16 +1,14 @@
 package com.yugao.lianzheng.modules.sys.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 
 import java.io.Serializable;
 
 /**
  * <p>
- * 廉政动态表
+ * 廉政资料主体信息
  * </p>
  *
  * @author lihong
@@ -18,28 +16,43 @@ import java.io.Serializable;
  */
 
 @Data
-@TableName("lianzheng_dongtai")
-public class LianzhengDongtaiEntity implements Serializable {
+@TableName("lianzheng_reference")
+public class LianzhengReferenceEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     /**
      * 主键id
      */
     @TableId
-    private String lianzhengDongtaiId;
+    private String lianzhengReferenceId;
     /**
-     * 廉政动态的标题
+     * 廉政资料的标题或名称
      */
     private String title;
 
     /**
-     * 廉政动态的内容
+     * 类别，对应lianzheng_reference_type中的数据
      */
-    private String content;
+    private String type;
 
     /**
-     * 廉政动态的类型
+     * 部门ID
      */
-    private int type;
+    private String department;
+
+    /**
+     * 项目ID
+     */
+    private String project;
+
+    /**
+     * 项目名称
+     */
+    private String projectName;
+
+    /**
+     * 内容和说明
+     */
+    private String content;
 
     /**
      * 创建者id
@@ -62,7 +75,7 @@ public class LianzhengDongtaiEntity implements Serializable {
     private String updatedAt;
 
     /**
-     * 状态：0-草稿，1-已发布，-1-删除
+     * 状态：0-草稿，1-正常，-1-删除
      */
     private int status;
 

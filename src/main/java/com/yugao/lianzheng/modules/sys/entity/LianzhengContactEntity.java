@@ -23,7 +23,7 @@ public class LianzhengContactEntity implements Serializable {
      * 主键id
      */
     @TableId
-    private String liangzhengContactId;
+    private String lianzhengContactId;
     /**
      * 联系电话
      */

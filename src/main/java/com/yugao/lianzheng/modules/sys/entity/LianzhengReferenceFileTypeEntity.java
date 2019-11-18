@@ -1,16 +1,14 @@
 package com.yugao.lianzheng.modules.sys.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 
 import java.io.Serializable;
 
 /**
  * <p>
- * 廉政动态表
+ * 廉政资料类型
  * </p>
  *
  * @author lihong
@@ -18,28 +16,24 @@ import java.io.Serializable;
  */
 
 @Data
-@TableName("lianzheng_dongtai")
-public class LianzhengDongtaiEntity implements Serializable {
+@TableName("lianzheng_reference_file_type")
+public class LianzhengReferenceFileTypeEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     /**
      * 主键id
      */
     @TableId
-    private String lianzhengDongtaiId;
+    private String lianzhengReferenceFileTypeId;
     /**
-     * 廉政动态的标题
+     * 描述：本阶段包括：廉政专题教育会图文资料、廉政约谈图文资料、廉洁从业承诺书、廉政交底现场照片、廉政告知函
      */
-    private String title;
+    private String name;
 
     /**
-     * 廉政动态的内容
+     * 指定哪些廉政资料类型可以上传该类别的附件，多类型用英文逗号(,)分割
      */
-    private String content;
-
-    /**
-     * 廉政动态的类型
-     */
-    private int type;
+    @TableId
+    private String lianzhengReferenceTypeId;
 
     /**
      * 创建者id
@@ -62,7 +56,7 @@ public class LianzhengDongtaiEntity implements Serializable {
     private String updatedAt;
 
     /**
-     * 状态：0-草稿，1-已发布，-1-删除
+     * 状态：0-草稿，1-正常，-1-删除
      */
     private int status;
 

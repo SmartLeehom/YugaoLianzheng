@@ -1,16 +1,14 @@
 package com.yugao.lianzheng.modules.sys.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
-import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 
 import java.io.Serializable;
 
 /**
  * <p>
- * 廉政动态表
+ * 廉政资料类型
  * </p>
  *
  * @author lihong
@@ -18,28 +16,18 @@ import java.io.Serializable;
  */
 
 @Data
-@TableName("lianzheng_dongtai")
-public class LianzhengDongtaiEntity implements Serializable {
+@TableName("lianzheng_reference_type")
+public class LianzhengReferenceTypeEntity implements Serializable {
     private static final long serialVersionUID = 1L;
     /**
      * 主键id
      */
     @TableId
-    private String lianzhengDongtaiId;
+    private String lianzhengReferenceTypeId;
     /**
-     * 廉政动态的标题
+     * 描述：本阶段包括：集团资料，部门资料，项目资料
      */
-    private String title;
-
-    /**
-     * 廉政动态的内容
-     */
-    private String content;
-
-    /**
-     * 廉政动态的类型
-     */
-    private int type;
+    private String name;
 
     /**
      * 创建者id
@@ -62,7 +50,7 @@ public class LianzhengDongtaiEntity implements Serializable {
     private String updatedAt;
 
     /**
-     * 状态：0-草稿，1-已发布，-1-删除
+     * 状态：0-草稿，1-正常，-1-删除
      */
     private int status;
 

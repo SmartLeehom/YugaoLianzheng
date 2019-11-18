@@ -4,8 +4,8 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yugao.lianzheng.modules.sys.entity.LianzhengDongtaiImgEntity">
-        <id column="liangzheng_dongtai_img_id" property="liangzhengDongtaiImgId" />
-        <result column="liangzheng_dongtai_id" property="liangzhengDongtaiId" />
+        <id column="lianzheng_dongtai_img_id" property="lianzhengDongtaiImgId" />
+        <result column="lianzheng_dongtai_id" property="lianzhengDongtaiId" />
         <result column="path" property="path" />
         <result column="name" property="name" />
         <result column="size" property="size" />
@@ -20,7 +20,7 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        liangzheng_dongtai_img_id AS "liangzhengDongtaiImgId", liangzheng_dongtai_id AS "liangzhengDongtaiId", path AS "path", name AS "name", size AS "size", suffix AS "suffix",
+        lianzheng_dongtai_img_id AS "lianzhengDongtaiImgId", lianzheng_dongtai_id AS "lianzhengDongtaiId", path AS "path", name AS "name", size AS "size", suffix AS "suffix",
         created_by AS "createdBy", created_at AS "createdAt", updated_by AS "updatedBy", updated_at AS "updatedAt", status AS "status", remarks AS "remarks"
     </sql>
 
@@ -28,18 +28,18 @@
     <select id="getLianzhengDongtaiByMainId" resultType="com.beyondsoft.yugao.modules.sys.entity.LianzhengDongtaiImgEntity">
         select
         <include refid="Base_Column_List"></include>
-        from liangzheng_dongtai_img
-        where liangzheng_dongtai_id=#{mainId} and status=1
+        from lianzheng_dongtai_img
+        where lianzheng_dongtai_id=#{mainId} and status=1
         order by created_at desc
     </select>
 
     <!-- 删除廉政动态图片 -->
     <update id="deleteLianzhengDongtaiImg" >
-        update liangzheng_dongtai_img set status=-1 where liangzheng_dongtai_img_id=#{id}
+        update lianzheng_dongtai_img set status=-1 where lianzhen_dongtai_img_id=#{id}
     </update>
 
     <!-- 删除廉政动态图片 -->
     <update id="clearLianzhengDongtaiImgsByMainId" >
-        update liangzheng_dongtai_img set status=-1 where liangzheng_dongtai_id=#{mainId}
+        update lianzheng_dongtai_img set status=-1 where lianzheng_dongtai_id=#{mainId}
     </update>
 </mapper>

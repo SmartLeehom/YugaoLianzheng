@@ -4,7 +4,7 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.yugao.lianzheng.modules.sys.entity.LianzhengDongtaiEntity">
-        <id column="liangzheng_dongtai_id" property="liangzhengDongtaiId" />
+        <id column="lianzheng_dongtai_id" property="lianzhengDongtaiId" />
         <result column="title" property="title" />
         <result column="content" property="content" />
         <result column="type" property="type" />
@@ -18,27 +18,27 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        liangzheng_dongtai_id AS "liangzhengDongtaiId", title AS "title", content AS "content", type AS "type",
+        lianzheng_dongtai_id AS "lianzhengDongtaiId", title AS "title", content AS "content", type AS "type",
         created_by AS "createdBy", created_at AS "createdAt", updated_by AS "updatedBy", updated_at AS "updatedAt", status AS "status", remarks AS "remarks"
     </sql>
 
     <!-- 更新数据 -->
     <update id="updateLianzhengDongtai" parameterType="com.yugao.lianzheng.modules.sys.entity.LianzhengDongtaiEntity">
-        update liangzheng_dongtai
+        update lianzheng_dongtai
         <set>
             <if test="lianzhengDongtaiEntity.title != null">title=#{lianzhengDongtaiEntity.title},</if>
             <if test="lianzhengDongtaiEntity.content != null">content=#{lianzhengDongtaiEntity.content},</if>
             <if test="lianzhengDongtaiEntity.type != null">type=#{lianzhengDongtaiEntity.type},</if>
             <if test="lianzhengDongtaiEntity.status != null">status=#{lianzhengDongtaiEntity.status},</if>
         </set>
-        where liangzheng_dongtai_id=#{lianzhengDongtaiEntity.liangzhengDongtaiId}
+        where lianzheng_dongtai_id=#{lianzhengDongtaiEntity.lianzhengDongtaiId}
     </update>
 
     <!-- 查询廉政动态 -->
     <select id="queryList" resultType="com.beyondsoft.yugao.modules.sys.entity.LianzhengDongtaiEntity">
         select
         <include refid="Base_Column_List"></include>
-        from liangzheng_dongtai
+        from lianzheng_dongtai
         <where>
             <if test="createdBy != null">and created_by=#{createdBy}</if>
             <if test="beginTime != null">and created_at  <![CDATA[ >= ]]> #{beginTime}</if>
@@ -51,6 +51,15 @@
 
     <!-- 删除廉政动态 -->
     <update id="deleteLianzhengDongtai" >
-        update liangzheng_dongtai set status=-1 where liangzheng_dongtai_id=#{id}
+        update lianzheng_dongtai set status=-1 where lianzheng_dongtai_id=#{id}
     </update>
+
+    <!-- 查询廉政动态详情 -->
+    <select id="getLianzhengDongtaiDetail" resultType="com.beyondsoft.yugao.modules.sys.entity.LianzhengDongtaiEntity">
+        select
+        <include refid="Base_Column_List"></include>
+        from lianzheng_dongtai
+        where lianzheng_dongtai_id=#{id}
+        order by created_at desc
+    </select>
 </mapper>
