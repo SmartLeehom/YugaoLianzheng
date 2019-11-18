@@ -31,7 +31,7 @@
     <select id="findById" resultType="com.yugao.lianzheng.modules.sys.entity.LianzhengFileEntity">
         select
         <include refid="Base_Column_List"/>
-        from lianzheng_file where lianzheng_file_id = #{"id"}
+        from lianzheng_file where lianzheng_file_id = #{id}
     </select>
 
     <select id="getFileList"  resultType="com.yugao.lianzheng.modules.sys.entity.LianzhengFileEntity" >
@@ -47,10 +47,10 @@
         order by create_time desc
     </select>
 
-    <update id="deleteFileById" parameterType="com.beyondsoft.yugao.modules.sys.entity.FileInfoEntity">
+    <update id="deleteFileById">
         update  lianzheng_file
         set status=-1
-        where lianzheng_file_id=#{fileInfo."id"}
+        where lianzheng_file_id=#{id}
     </update>
 
 
