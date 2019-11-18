@@ -35,11 +35,11 @@
     <update id="updateLianzhengContact"  parameterType="com.yugao.lianzheng.modules.sys.entity.LianzhengContactEntity">
         update lianzheng_contact
         <set>
-            <if test="LianzhengContactEntity.address != null">title=#{LianzhengContactEntity.address},</if>
-            <if test="LianzhengContactEntity.tel_no != null">content=#{LianzhengContactEntity.tel_no},</if>
-            <if test="LianzhengContactEntity.email != null">email=#{LianzhengContactEntity.email},</if>
-            <if test="LianzhengContactEntity.status != null">status=#{LianzhengContactEntity.status},</if>
+            <if test="lianzhengContactEntity.address != null">title=#{lianzhengContactEntity.address},</if>
+            <if test="lianzhengContactEntity.tel_no != null">content=#{lianzhengContactEntity.tel_no},</if>
+            <if test="lianzhengContactEntity.email != null">email=#{lianzhengContactEntity.email},</if>
+            <if test="lianzhengContactEntity.status != null">status=#{lianzhengContactEntity.status},</if>
         </set>
-        where lianzheng_contact_id=#{lianzhengDongtaiEntity.lianzhengContactId}
+        where lianzheng_contact_id=#{lianzhengContactEntity.lianzhengContactId}
     </update>
 </mapper>
